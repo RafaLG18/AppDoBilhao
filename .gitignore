@@ -1,0 +1,25 @@
+# Ambientes virtuais
+app_do_bilhao_python/app_bilhao/
+.venv/
+venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Configuração de IDE
+.spyproject/
+.idea/
+.vscode/
+
+# Segredos locais
+.env
+.env.local
+CLAUDE.local.md
+
+# Configuração local do Claude Code
+.claude/settings.local.json

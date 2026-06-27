@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    container_name: app-do-bilhao
+    ports:
+      - "8501:8501"
+    # Monta o código local para refletir alterações sem rebuild (dev)
+    volumes:
+      - ./app_do_bilhao_python:/app/app_do_bilhao_python
+    restart: unless-stopped

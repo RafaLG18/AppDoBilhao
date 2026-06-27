@@ -1,0 +1,24 @@
+# Ambientes virtuais
+app_do_bilhao_python/app_bilhao/
+.venv/
+venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Git e metadados
+.git/
+.gitignore
+
+# Configuração de IDE / ferramentas
+.idea/
+.vscode/
+.spyproject/
+
+# Segredos locais
+.env
+.env.local
+CLAUDE.local.md
