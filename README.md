@@ -52,29 +52,34 @@ uv run streamlit run app_do_bilhao_python/main.py
 
 Para rodar o sistema em container, sem instalar Python ou dependências localmente:
 
+Os arquivos do Docker ficam na pasta `docker/`, então use `-f docker/compose.yaml`:
+
 ```bash
 # Sobe o app (build na primeira execução)
-docker compose up --build
+docker compose -f docker/compose.yaml up --build
 
 # Em segundo plano
-docker compose up -d --build
+docker compose -f docker/compose.yaml up -d --build
 
 # Para parar
-docker compose down
+docker compose -f docker/compose.yaml down
 ```
 
-Depois acesse `http://localhost:8501`. O `compose.yaml` monta a pasta `app_do_bilhao_python/`
-no container, então alterações no código são refletidas ao recarregar a página.
+Depois acesse `http://localhost:8501`. O `compose.yaml` usa a raiz do repositório como
+contexto de build e monta a pasta `app_do_bilhao_python/` no container, então alterações
+no código são refletidas ao recarregar a página.
 
 ## Estrutura do projeto
 
 ```
 AppDoBilhao/
 ├── app_do_bilhao_python/
-│   └── main.py          # App principal (Streamlit)
-├── requirements.txt     # Dependências do projeto
-├── Dockerfile           # Imagem do app
-└── compose.yaml         # Orquestração via Docker Compose
+│   └── main.py                    # App principal (Streamlit)
+├── docker/
+│   ├── Dockerfile                 # Imagem do app
+│   ├── Dockerfile.dockerignore    # Exclusões do contexto de build
+│   └── compose.yaml               # Orquestração via Docker Compose
+└── requirements.txt               # Dependências do projeto
 ```
 
 ## Status
